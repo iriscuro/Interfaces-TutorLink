@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorlink - Inicio de Sesión</title>
+    <!-- Vincula el archivo CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Vincula el archivo JavaScript de particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("images/TutorLink3.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 500px;
+            color: #ffffff;
+            background: radial-gradient(ellipse at center, rgba(0, 122, 204, 0.6) 0%, rgba(0, 0, 0, 0.3) 100%);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px) brightness(70%);
+            z-index: 1;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            width: 100px;
+        }
+
+        .form {
+            text-align: center;
+        }
+
+        .form input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .login-button, .register-button {
+            border-radius: 10px;
+            padding: 10px 20px; /* Ajusta el tamaño del botón */
+            margin-top: 20px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out; /* Agrega una transición suave al color de fondo */
+            
+            
+        }
+        .login-button{
+            width: 150px;
+            display: block; /* Para centrar el botón */
+            margin: 0 auto;
+            background-color: #08AAC1; /* Color turquesa por defecto para el botón */
+            color: #fff;
+            border: none;
+        }
+
+        .login-button:hover {
+            background-image: linear-gradient(45deg, #FF69B1, #87CEFA); /* Cambia el color al pasar el mouse */ 
+            color: #ffffff;
+        }
+
+        a.text-info {
+            color: #00CED1; /* Color por defecto (turquesa) */
+            transition: color 0.3s ease-in-out; /* Agrega una transición suave al color */
+        }
+
+        a.text-info:hover {
+            color: #ffffff; /* Cambia el color a blanco al pasar el mouse */
+        }
+
+        .footer {
+            background-color: #001F3D;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div class="container">
+        <div class="logo">
+            <img src="images/logo.jpg" alt="Logo de la aplicación">
+        </div>
+        <div class="form">
+            <h2 class="mb-4">Iniciar Sesión</h2>
+            <input type="text" class="form-control" placeholder="Ingrese su nombre de usuario">
+            <input type="password" class="form-control" placeholder="Ingrese su contraseña">
+            <button class="btn btn-primary btn-block login-button">Iniciar Sesión</button>
+            <div class="mt-4 d-flex justify-content-between align-items-center">
+                <a class="text-info" href="#">¿No tienes cuenta?</a>
+                <a href="sign_up.html" class="btn btn-outline-light register-button">Regístrate</a>
+            </div>
+
+        </div>
+    </div>
+    <div class="footer">
+        Copyright © 2023 TutorLink
+    </div>
+
+    <script>
+        particlesJS("particles-js", {
+            particles: {
+                number: {
+                    value: 80,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: "#ffffff"
+                },
+                shape: {
+                    type: "circle",
+                    stroke: {
+                        width: 0,
+                        color: "#000000"
+                    },
+                    polygon: {
+                        nb_sides: 5
+                    }
+                },
+                opacity: {
+                    value: 0.5,
+                    random: false,
+                    anim: {
+                        enable: false,
+                        speed: 1,
+                        opacity_min: 0.1,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 3,
+                    random: true,
+                    anim: {
+                        enable: false,
+                        speed: 40,
+                        size_min: 0.1,
+                        sync: false
+                    }
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#ffffff",
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 6,
+                    direction: "none",
+                    random: false,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false,
+                    attract: {
+                        enable: false,
+                        rotateX: 600,
+                        rotateY: 1200
+                    }
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: "repulse"
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: "push"
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 400,
+                        line_linked: {
+                            opacity: 1
+                        }
+                    },
+                    bubble: {
+                        distance: 400,
+                        size: 40,
+                        duration: 2,
+                        opacity: 8,
+                        speed: 3
+                    },
+                    repulse: {
+                        distance: 200,
+                        duration: 0.4
+                    },
+                    push: {
+                        particles_nb: 4
+                    },
+                    remove: {
+                        particles_nb: 2
+                    }
+                }
+            }
+        });
+    </script>
+
+    <!-- Vincula el archivo JavaScript de Bootstrap (requiere jQuery) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

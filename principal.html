@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorlink - Principal</title>
+    <!-- Vincula el archivo CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="principal.css">
+    <title>Tutorlink - Inicio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #ffffff 0%, #ffffff 100%) no-repeat;
+            background-attachment: fixed;
+            animation: travelAnimation 10s infinite;
+            background-image: url("images/TutorLink.png"); /* Cambia la imagen de fondo */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Evita la barra de desplazamiento horizontal */
+        }
+
+        .content {
+            margin: 0;
+            padding: 20px;
+        }
+
+        .title {
+            text-align: center;
+            background-color: #2DA4C3; /* Celeste/turquesa */
+            color: #fff; /* Blanco */
+            border-radius: 20px;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .title-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .slogan {
+            background-color: transparent;
+            color: #fff; /* Cambiado a blanco */
+            border-radius: 20px;
+            padding: 10px;
+            width: 80%; /* Ajusta el ancho según tus necesidades */
+            font-family: "cursive", "Lucida Handwriting", "Brush Script MT", cursive; /* Ejemplo de fuentes elegantes */
+            font-size: 24px; /* Tamaño de fuente, ajusta según tus necesidades */
+        }
+
+        .slogan p {
+            font-style: italic;
+        }
+
+        .main-image {
+            width: 100%; /* Ajusta el ancho según tus necesidades */
+            text-align: right;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        .main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .content-area {
+            display: flex;
+            flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+            /*justify-content: space-between;*/
+            align-items: flex-start;
+            justify-content: center; /* Centra los contenedores en el eje principal */
+    		margin-top: 20px;
+        }
+
+        .section {
+            flex: 1;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-content {
+            display: flex;
+            overflow-x: auto;
+        }
+
+        .professor,
+        .event,
+        .material {
+            flex: 0 0 auto;
+            margin-right: 10px;
+            text-align: center;
+        }
+
+        .professor img,
+        .event img,
+        .material img {
+            max-width: 100%;
+            max-height: 100px; /* Ajusta la altura máxima según tu preferencia */
+        }
+
+        .material-cover {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s; /* Agrega una transición suave */
+        }
+
+        .material-wrapper {
+            width: 150px; /* Establece el ancho máximo de las portadas pequeñas */
+            height: 225px; /* Establece la altura máxima de las portadas pequeñas */
+            overflow: hidden;
+            position: relative; /* Necesario para alinear el contenido sobre la imagen */
+        }
+
+        .material-wrapper:hover .material-cover {
+            transform: scale(1.1); /* Aumenta el tamaño en un 10% cuando el cursor está sobre el material */
+            z-index: 1; /* Asegura que la imagen se superponga a otros elementos */
+        }
+
+        .material-info {
+            position: absolute;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro semitransparente para el texto */
+            width: 100%;
+            padding: 5px 10px;
+            color: #fff; /* Texto en blanco */
+            text-align: center;
+        }
+
+        .material-row {
+            display: flex;
+            flex-wrap: wrap; /* Permite que los materiales se envuelvan en pantallas pequeñas */
+            justify-content: center; /* Centra los materiales en pantallas pequeñas */
+        }
+
+        .top-right-buttons {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .action-buttons {
+            text-align: right;
+            padding: 20px;
+        }
+
+        .action-button {
+            background-color: transparent;
+            border: 2px solid #2DA4C3; /* Borde celeste claro */
+            color: #2DA4C3; /* Color celeste claro */
+            border-radius: 10px;
+            padding: 10px 20px;
+            margin-left: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s; /* Agrega una transición suave */
+        }
+
+        .action-button:hover {
+            background-color: #2DA4C3; /* Celeste/turquesa */
+            color: #fff; /* Blanco */
+        }
+
+        .navigation-arrow {
+            font-size: 24px;
+            color: #fff;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
+            background-color: rgba(45, 164, 195, 0.7);
+            border-radius: 50%;
+            padding: 10px;
+        }
+
+        .arrow-left {
+            left: 0;
+        }
+
+        .arrow-right {
+            right: 0;
+        }
+
+        .service-title {
+            color: #2DA4C3; /* Color celeste claro */
+            /*text-decoration: underline;*/
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #001F3D;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 1;
+            text-decoration: none;
+            font-size: 12px;
+            font-style: italic;
+            /* Estilo de fuente itálica */
+            font-weight: lighter;
+            /* Estilo de fuente más ligero */
+            transition: text-decoration 0.3s ease-in-out, color 0.3s ease-in-out;
+            /* Agrega una transición suave al subrayado y al color */
+        }
+
+        .footer a {
+            color: #ffffff;
+            /* Color blanco por defecto para las palabras en el pie de página */
+            text-decoration: none;
+            /* Elimina el subrayado predeterminado */
+            font-size: 12px;
+            /* Ajusta el tamaño de la fuente según tus preferencias */
+            font-style: italic;
+            /* Estilo de fuente itálica */
+            font-weight: lighter;
+            /* Estilo de fuente más ligero */
+            transition: color 0.3s ease-in-out;
+            /* Agrega una transición suave al color */
+        }
+
+        .footer a:hover {
+            color: #76DCEB;
+            /* Cambia el color al pasar el mouse por encima */
+            text-decoration: underline;
+            /* Agrega subrayado al pasar el mouse por encima */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="content">
+        <div class="title">
+            <div class="title-content">
+                <div class="slogan">
+                    <p>Tutorlink, es una comunidad educativa enfocada en ti</p>
+                </div>
+                <div class="main-image">
+                    <img src="images/tu_imagen.jpg" alt="Imagen principal">
+                </div>
+            </div>
+        </div>
+
+        <div class="content-area">
+            <div class="section">
+                <h2 class="text-center service-title">Profesores Mejor Calificados <span
+                        class="navigation-arrow arrow-left" onclick="scrollSection('professors', 'left')">‹</span><span
+                        class="navigation-arrow arrow-right" onclick="scrollSection('professors', 'right')">›</span>
+                </h2>
+                <div class="section-content professors">
+                    <div class="professor">
+                        <img src="images/Profesores-avatar/mariajonson.png" alt="Profesor 1">
+                        <p>Nombre del Profesor 1</p>
+                        <p>Calificación: 4.8</p>
+                    </div>
+                    <div class="professor">
+                        <img src="images/Profesores-avatar/terryAnderson.png" alt="Profesor 2">
+                        <p>Nombre del Profesor 2</p>
+                        <p>Calificación: 4.6</p>
+                    </div>
+                    <!-- Agrega más profesores aquí -->
+                </div>
+            </div>
+            <div class="section">
+                <h2 class="text-center service-title">Eventos Próximos <span
+                        class="navigation-arrow arrow-left" onclick="scrollSection('events', 'left')">‹</span><span
+                        class="navigation-arrow arrow-right" onclick="scrollSection('events', 'right')">›</span></h2>
+                <div class="section-content events">
+                    <div class="event">
+                        <img src="images/expoarq.png" alt="Evento 1">
+                        <p>Nombre del Evento 1</p>
+                        <p>Fecha: 10 de Noviembre</p>
+                    </div>
+                    <div class="event">
+                        <img src="images/openday.png" alt="Evento 2">
+                        <p>Nombre del Evento 2</p>
+                        <p>Fecha: 15 de Noviembre</p>
+                    </div>
+                    <!-- Agrega más eventos aquí -->
+                </div>
+            </div>
+        </div>
+
+        <div class="content-area">
+            <div class="section">
+                <h2 class="text-center service-title">Materiales de Estudio Recientes <span
+                        class="navigation-arrow arrow-left" onclick="scrollSection('materials', 'left')">‹</span><span
+                        class="navigation-arrow arrow-right" onclick="scrollSection('materials', 'right')">›</span></h2>
+                <div class="section-content materials">
+                    <div class="material">
+                        <div class="material-wrapper">
+                            <img class="material-cover" src="images/dr.png" alt="Portada del Material 1">
+                            <div class="material-info">
+                                <p>Nombre del Curso: Curso 1</p>
+                                <p>Tipo de Material: Libro</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="material">
+                        <div class="material-wrapper">
+                            <img class="material-cover" src="images/algebra.jpg" alt="Portada del Material 2">
+                            <div class="material-info">
+                                <p>Nombre del Curso: Curso 2</p>
+                                <p>Tipo de Material: Diapositiva</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="material">
+                        <div class="material-wrapper">
+                            <img class="material-cover" src="images/material3.jpg" alt="Portada del Material 3">
+                            <div class="material-info">
+                                <p>Nombre del Curso: Curso 3</p>
+                                <p>Tipo de Material: Libro</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Agrega más materiales aquí -->
+                </div>
+            </div>
+        </div>
+
+        <div class="top-right-buttons">
+            <button class="action-button" onclick="redirectTo('sign_in.html')">Sign Up</button>
+            <button class="action-button" onclick="redirectTo('login.html')">Login</button>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer fixed-bottom bg-dark text-white text-center p-2">
+            <a href="#">Terms</a> | <a href="#">Política de privacidad</a> | <a href="#">Política de cookies</a> | <a
+                href="#">Contáctanos</a> | <a href="#">Acerca de TUTORLink</a>
+        </div>
+    </div>
+
+    <!-- Script JavaScript para gestionar el comportamiento de la barra lateral -->
+    <script>
+        function redirectTo(page) {
+            window.location.href = page;
+        }
+
+        function scrollSection(section, direction) {
+            const container = document.querySelector(`.${section}`);
+            const scrollAmount = container.clientWidth; // Puedes ajustar este valor según tu preferencia
+            if (direction === 'left') {
+                container.scrollLeft -= scrollAmount;
+            } else if (direction === 'right') {
+                container.scrollLeft += scrollAmount;
+            }
+        }
+    </script>
+</body>
+
+</html>

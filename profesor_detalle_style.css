@@ -1,0 +1,109 @@
+/* Estilos adicionales para la página de detalles del profesor */
+
+/* Estilos para la sección de valoraciones */
+.ratings-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333; /* Color oscuro para el título */
+    margin-bottom: 20px;
+}
+
+.ratings-container {
+    /* Utiliza la clase "list-group" de Bootstrap para dar un formato de lista */
+    list-style: none;
+    padding: 0;
+}
+
+.rating-item {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #fff; /* Fondo blanco */
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user-name {
+    font-weight: bold;
+    margin: 0;
+}
+
+.star-rating {
+    color: #FFD700; /* Color dorado para las estrellas */
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.comment {
+    color: #555; /* Color gris oscuro para el comentario */
+    margin: 0;
+    font-size: 16px;
+}
+
+/* Agrega estilos de Bootstrap para mejorar la apariencia */
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.col-md-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+/* Estilos adicionales para la página de detalles del profesor */
+
+/* Estilos para los iconos de redes sociales */
+.social-icons {
+    font-size: 24px;
+}
+
+.social-icon {
+    transition: color 0.3s; /* Agrega una transición suave al color */
+}
+
+.social-icon:hover {
+    color: #17a2b8; /* Cambia el color al pasar el mouse por encima */
+}
+
+/* Clases de color */
+.text-muted {
+    color: #6c757d; /* Color gris para iconos no disponibles */
+}
+
+.text-turquoise {
+    color: #17a2b8; /* Color turquesa para iconos disponibles */
+}
+
+/* Otros estilos específicos de Bootstrap según sea necesario */
+
+

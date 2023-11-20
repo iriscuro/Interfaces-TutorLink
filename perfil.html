@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorlink - Perfil de Usuario</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background: linear-gradient(to bottom, #ffffff 0%, #ffffff 100%) no-repeat;
+            background-attachment: fixed;
+            animation: travelAnimation 10s infinite;
+        }
+
+        @keyframes travelAnimation {
+            0% {
+                background-position: 0% 0%;
+            }
+
+            100% {
+                background-position: 100% 0%;
+            }
+        }
+
+        .sidebar {
+            background-color: #2DA4C3; /* Color más brillante de aurora boreal */
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            height: 100%;
+            border-radius: 0 20px 20px 0;
+            transition: left 0.3s;
+            z-index: 2;
+        }
+
+        .sidebar-open {
+            left: 0;
+        }
+
+        .logo {
+            padding: 20px 10px;
+            text-align: center;
+        }
+
+            .logo img {
+                width: 150px;
+                border-radius: 0;
+            }
+
+        .menu-options {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .exit {
+            position: absolute;
+            bottom: 20px;
+        }
+
+        .menu-button {
+            background-color: transparent;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+        }
+
+            .menu-button:hover {
+                background-color: #ffffff; /* Color fluorescente al pasar el ratón */
+                color: #000; /* Cambiado a negro para mayor contraste */
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            }
+        .menu-option.exit {
+            margin-top: auto;
+        }
+
+        .sidebar-toggle {
+            background-color: #2DA4C3;
+            color: #fff;
+            border: none;
+            border-radius: 0 10px 10px 0;
+            padding: 10px;
+            position: absolute;
+            top: 20px;
+            left: 0;
+            cursor: pointer;
+            z-index: 3;
+        }
+
+        .user-profile {
+            padding: 20px;
+            text-align: center;
+        }
+
+
+
+        .user-avatar {
+            position: relative;
+            display: inline-block;
+        }
+
+            .user-avatar img {
+                width: 100px;
+                height: 100px;
+                border: 2px solid #2DA4C3;
+                border-radius: 50%;
+            }
+
+            .user-avatar input[type="file"] {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                opacity: 0;
+                cursor: pointer;
+            }
+
+        .user-details {
+            text-align: left;
+            max-width: 600px; /* Ajusta el ancho máximo del formulario según tus necesidades */
+            margin: auto; /* Centra el formulario en la página */
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+            .user-info label {
+                width: 150px;
+                font-weight: bold;
+            }
+
+            .user-info input {
+                width: 100%;
+                padding: 5px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+            }
+
+        .user-activity {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .user-activity-section {
+            background-color: #fff; /* Fondo blanco */
+            border: 1px solid #ddd; /* Borde gris */
+            border-radius: 10px; /* Bordes redondeados */
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+
+            .user-activity-section h3 {
+                font-weight: bold;
+                color: #2DA4C3; /* Color del texto */
+            margin-bottom: 10px;
+            }
+
+            .user-activity-section ul {
+                list-style: none;
+                padding: 0;
+            }
+
+            .user-activity-section li {
+                margin: 10px 0;
+                padding: 10px;
+                background-color: #f8f9fa; /* Fondo gris claro */
+                border-radius: 5px; /* Bordes redondeados */
+                border: 1px solid #ccc; /* Borde gris claro */
+            }
+
+        .edit-button {
+            background-color: #2DA4C3;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        .save-button {
+            background-color: #17b056;
+        }
+
+            .save-button:disabled {
+                background-color: #ccc;
+                cursor: not-allowed;
+            }
+
+        .profile-vote {
+            display: inline-block;
+            padding: 10px;
+            background-color: transparent;
+            border: 1px solid #2DA4C3;
+            border-radius: 5px;
+            margin: 10px;
+            color: #2DA4C3;
+        }
+
+        .profile-vote.show {
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        .profile-vote:hover {
+            background-color: #FFD700; /* Color fluorescente al pasar el ratón */
+            color: #000; /* Cambiado a negro para mayor contraste */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            border: none;
+        }
+
+        .menu-options {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .exit {
+            position: absolute;
+            bottom: 20px;
+        }
+
+        .menu-button {
+            background-color: transparent;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+        }
+
+        .menu-button:hover {
+            background-color: #ffffff; /* Color fluorescente al pasar el ratón */
+            color: #000; /* Cambiado a negro para mayor contraste */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .menu-option.exit {
+            margin-top: auto;
+        }
+
+        .footer {
+            background-color: #001F3D;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 1;
+        }
+
+            .footer a {
+                color: #ffffff;
+                text-decoration: underline;
+                margin: 0 10px;
+            }
+
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 10px;
+            cursor: pointer;
+            color: #fff;
+        }
+
+            .close-button:hover {
+                color: #fff;
+            }
+
+        .action-button {
+            background-color: #F4A460;
+            color: #000;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .custom-btn {
+            margin: 25px;
+            margin-left: -10px;
+            padding: 10px;
+            width: 45px;
+            height: 45px;
+            position: absolute;
+            top: 10px;
+            left: 0px;
+            z-index: 3; /* Valor mayor que el z-index de .sidebar */
+            border: none;
+            color: #000; /* Color de texto para contrastar */
+        }
+
+            .custom-btn:hover {
+                background-image: linear-gradient(45deg, #87CEEB, #00ff90); /* Celeste a Rosado */
+                background-size: 100% 100%;
+                animation: gradientAnimation 1.5s infinite;
+            }
+    </style>
+</head>
+<body>
+    <div class="sidebar" id="sidebar">
+        <span class="close-button" onclick="toggleSidebar()">✖</span>
+        <div class="logo">
+            <img src="images/logo.jpg" alt="Logo de la aplicación">
+        </div>
+        <div class="menu-options">
+                <button class="btn btn-light menu-button" onclick="redirectTo('foro.html')">Foro</button>
+                <button class="btn btn-light menu-button" onclick="redirectTo('tutoria.html')">Tutoría</button>
+                <button class="btn btn-light menu-button" onclick="redirectTo('material.html')">Materiales</button>
+                <button class="btn btn-light menu-button exit" onclick="redirectTo('principal.html')">Exit</button>
+        </div>
+    </div>
+
+    <button class="btn btn-info btn-lg custom-btn" onclick="toggleSidebar()">☰</button>
+
+    <div class="user-profile">
+        <div class="user-avatar">
+            <img src="images/user-avatar.png" alt="Avatar del usuario">
+            <input type="file" id="avatar-input">
+        </div>
+        <div class="user-details">
+            <div class="user-info">
+                <label>Nombre de usuario:</label>
+                <input type="text" value="Usuario" class="form-control" id="username" disabled>
+                <button class="btn btn-primary edit-button" onclick="editField('username')">Editar</button>
+            </div>
+            <div class="user-info">
+                <label>Nombre completo:</label>
+                <input type="text" value="Nombre Completo" class="form-control" id="fullname" disabled>
+                <button class="btn btn-primary edit-button" onclick="editField('fullname')">Editar</button>
+            </div>
+            <div class="user-info">
+                <label>Email:</label>
+                <input type="text" value="usuario@ejemplo.com" class="form-control" id="email" disabled>
+                <button class="btn btn-primary edit-button" onclick="editField('email')">Editar</button>
+            </div>
+            <button class="btn btn-primary edit-button save-button" id="save-button" disabled>Guardar Cambios</button>
+            <div class="user-activity">
+                <div class="user-activity-section">
+                    <h3>Material visitado</h3>
+                    <ul>
+                        <li>Material 1 - Fecha 1</li>
+                        <li>Material 2 - Fecha 2</li>
+                    </ul>
+                </div>
+                <div class="user-activity-section">
+                    <h3>Preguntas de foro</h3>
+                    <ul>
+                        <li>Pregunta 1 - Votos 5</li>
+                        <li>Pregunta 2 - Votos 8</li>
+                    </ul>
+                </div>
+                <div class="user-activity-section">
+                    <h3>Tutores contratados</h3>
+                    <ul>
+                        <li>Tutor 1 - Especialidad 1</li>
+                        <li>Tutor 2 - Especialidad 2</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <div class="profile-vote" onclick="redirectToNewTutor()">Quiero ser tutor
+
+        </div>
+
+        <div class="footer fixed-bottom bg-dark text-white text-center p-2">
+            <a href="#">Terms</a> | <a href="#">Política de privacidad</a> | <a href="#">Política de cookies</a> | <a href="#">Contáctanos</a> | <a href="#">Acerca de TUTORLink</a>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function toggleSidebar() {
+            var sidebar = document.querySelector(".sidebar");
+            var content = document.querySelector(".user-profile");
+            sidebar.classList.toggle("sidebar-open");
+            content.classList.toggle("sidebar-open");
+        }
+
+        function editField(fieldId) {
+            const field = document.getElementById(fieldId);
+            field.removeAttribute('disabled');
+            document.getElementById('save-button').removeAttribute('disabled');
+        }
+        function redirectToNewTutor() {
+            // Aquí debes agregar la lógica para determinar si el usuario es aprendiz o tutor
+            // y redirigir a la página correspondiente
+            var userType = 'aprendiz'; // Cambia esto con la lógica real
+
+            if (userType === 'aprendiz') {
+                window.location.href = 'new_tutor.html';
+            }
+        }
+    </script>
+</body>
+</html>

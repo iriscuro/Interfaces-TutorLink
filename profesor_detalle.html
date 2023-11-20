@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Profesor</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-xrBbXYUQ9PV2OGm+1jZI5N0sK/09xu6g/lnTbNBoZhOsH4Jj2V2aY2Z5a4C6kRWeL5cuIqUeM2eK0pypZl/zTuA==" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="user-style.css">
+    <link rel="stylesheet" href="profesor_detalle_style.css"> <!-- Tu hoja de estilo personalizada -->
+</head>
+<body>
+    <div class="wrapper">
+       <div class="sidebar" id="sidebar">
+            <span class="close-button" onclick="toggleSidebar()">✖</span>
+            <div class="logo">
+                <img src="images/logo.jpg" alt="Logo de la aplicación">
+            </div>
+            <div class="menu-options">
+                <button class="btn btn-light menu-button" onclick="redirectTo('foro.html')">Foro</button>
+                <button class="btn btn-light menu-button" onclick="redirectTo('tutoria.html')">Tutoría</button>
+                <button class="btn btn-light menu-button" onclick="redirectTo('material.html')">Materiales</button>
+                <button class="btn btn-light menu-button exit" onclick="redirectTo('principal.html')">Exit</button>
+            </div>
+        </div>
+        <button class="btn btn-info btn-lg custom-btn" onclick="toggleSidebar()">☰</button>
+
+        <div class="content">
+            <!-- Contenido de la barra de usuario -->
+            <!-- ... -->
+
+            <!-- Contenido de los detalles del profesor -->
+            <div class="container mt-4">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="images/Profesores-avatar/terryAnderson.png" alt="Avatar del profesor" class="img-fluid rounded">
+
+                        <!-- Icono de video en la esquina inferior derecha -->
+                        <a href="#" data-toggle="modal" data-target="#videoModal" class="video-icon">
+                            <i class="fas fa-play-circle"></i>
+                        </a>
+
+                    </div>
+                    <div class="col-md-6">
+                        <h2 class="professor-name">Nombre del Profesor</h2>
+                        <p class="course">Curso: Nombre del Curso</p>
+                        <p class="rating">Puntuación: ★★★★☆</p>
+                        <p class="description">Descripción académica del profesor.</p>
+                        
+                        <!-- Área de redes sociales -->
+                        <div class="social-icons mt-3">
+                            <!-- WhatsApp -->
+                            <a href="#" target="_blank" class="mr-2">
+                                <span class="social-icon fab fa-whatsapp <?php echo $whatsappAvailable ? 'text-turquoise' : 'text-muted'; ?>"></span>
+                            </a>
+                            <!-- Facebook -->
+                            <a href="#" target="_blank" class="mr-2">
+                                <span class="social-icon fab fa-facebook <?php echo $facebookAvailable ? 'text-turquoise' : 'text-muted'; ?>"></span>
+                            </a>
+                            <!-- Twitter -->
+                            <a href="#" target="_blank" class="mr-2">
+                                <span class="social-icon fab fa-twitter <?php echo $twitterAvailable ? 'text-turquoise' : 'text-muted'; ?>"></span>
+                            </a>
+                            <!-- LinkedIn -->
+                            <a href="#" target="_blank" class="mr-2">
+                                <span class="social-icon fab fa-linkedin <?php echo $linkedinAvailable ? 'text-turquoise' : 'text-muted'; ?>"></span>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Modal para el video -->
+            <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="videoModalLabel">Video de presentación del profesor</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- Inserta aquí el reproductor de video o el mensaje de no disponible -->
+                            <p>Aún no se tiene el video disponible.</p>
+                        </div>
+                        <!-- Puedes agregar más contenido al modal según sea necesario -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección de valoraciones -->
+            <div class="container mt-4">
+                <h3 class="ratings-title">Valoraciones de estudiantes</h3>
+                <!-- Mejora la presentación de las valoraciones, por ejemplo, con un diseño similar a YouTube -->
+                <div class="ratings-container">
+                    <!-- Ejemplo de valoración -->
+                    <div class="rating-item">
+                        <div class="user-info">
+                            <img src="images/user-avatar.png" alt="Avatar del usuario" class="img-fluid rounded-circle user-avatar">
+                            <p class="user-name">Nombre del Usuario</p>
+                        </div>
+                        <div class="rating-content">
+                            <div class="star-rating">
+                                <!-- Agrega estrellas según la calificación -->
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9734;</span>
+                            </div>
+                            <p class="comment">Excelente profesor, muy claro en sus explicaciones.</p>
+                        </div>
+                    </div>
+                    <!-- Repite este bloque para más valoraciones -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección para incluir cualquier otro contenido necesario -->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Incluye cualquier otro script necesario -->
+    <script>
+        function toggleSidebar() {
+            var sidebar = document.querySelector(".sidebar");
+            var content = document.querySelector(".content");
+            sidebar.classList.toggle("sidebar-open");
+            content.classList.toggle("sidebar-open");
+        }
+    </script>
+</body>
+</html>

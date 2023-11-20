@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorlink - Materiales</title>
+    <!-- Vincula el archivo CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="user_style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="sidebar" id="sidebar">
+            <span class="close-button" onclick="toggleSidebar()">✖</span>
+            <div class="logo">
+                <img src="images/logo.jpg" alt="Logo de la aplicación">
+            </div>
+            <div class="menu-options">
+                <button class="btn btn-light menu-button" onclick="redirectTo('foro.html')">Foro</button>
+                <button class="btn btn-light menu-button" onclick="redirectTo('tutoria.html')">Tutoría</button>
+                <button class="btn btn-light menu-button" onclick="redirectTo('material.html')">Materiales</button>
+                <button class="btn btn-light menu-button exit" onclick="redirectTo('principal.html')">Exit</button>
+            </div>
+        </div>
+        <button class="btn btn-info btn-lg custom-btn" onclick="toggleSidebar()">☰</button>
+
+        <!-- ... Código anterior ... -->
+
+        <div class="content">
+            <div class="user-profile" onclick="window.location.href='perfil.html'">
+                <img src="images/user-avatar.png" alt="Avatar del usuario">
+                <p>Usuario</p>
+            </div>
+            <div class="title">
+                <div class="title-content">
+                    <div class="slogan">
+                        <p>Tutorlink, encuentra el material que estabas buscando!</p>
+                    </div>
+                    <div class="main-image">
+                        <img src="images/material.png" alt="Imagen principal">
+                    </div>
+                </div>
+            </div>
+            <div class="search-bar">
+                <div class="row">
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" placeholder="Buscar materiales...">
+                    </div>
+                    <div class="col-md-2">
+                        <select class="form-control">
+                            <option value="">Modalidad</option>
+                            <option value="virtual">Virtual</option>
+                            <option value="presencial">Presencial</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" class="form-control" placeholder="Curso">
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" class="form-control" placeholder="Docente">
+                    </div>
+                    <div class="col-md-3">
+                        <button class="btn btn-primary search-button">Buscar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resultados de la búsqueda -->
+            <div class="container mt-4">
+                <div class="row">
+                    <!-- Resultados de la búsqueda -->
+                    <div class="col-md-6 mb-4">
+                        <div class="result-container" onclick="redirectTo('profesor_detalle.html')">
+                            <div class="result-image">
+                                <img src="images/Profesores-avatar/terryAnderson.png" alt="Avatar del profesor" class="img-fluid">
+                            </div>
+                            <div class="result-info">
+                                <h5 class="card-title">Nombre del Profesor</h5>
+                                <p class="card-text">Curso: Nombre del Curso</p>
+                                <p class="card-text">Puntuación: ★★★★☆</p>
+                                <p class="card-text">Descripción académica del profesor.</p>
+                                <div class="area-tag">
+                                    <span>Matemáticas</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                <!-- Repetir este bloque para más resultados -->
+
+                    <!-- Paginación -->
+                    <div class="col-md-12">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Anterior</a>
+                                </li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <!-- Agregar más números de página según sea necesario -->
+                                <li class="page-item">
+                                    <a class="page-link" href="#">Siguiente</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+    <!-- Footer -->
+    <div class="footer fixed-bottom bg-dark text-white text-center p-2">
+        <a href="#">Terms</a> | <a href="#">Política de privacidad</a> | <a href="#">Política de cookies</a> | <a href="#">Contáctanos</a> | <a href="#">Acerca de TUTORLink</a>
+    </div>
+
+
+    <!-- Vincula el archivo JavaScript de Bootstrap (requiere jQuery) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function toggleSidebar() {
+            var sidebar = document.querySelector(".sidebar");
+            var content = document.querySelector(".content");
+            sidebar.classList.toggle("sidebar-open");
+            content.classList.toggle("sidebar-open");
+        }
+    </script>
+    <script>
+        function redirectTo(page) {
+            window.location.href = page;
+        }
+    </script>
+
+
+</body>
+</html>

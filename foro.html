@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorlink - Materiales</title>
+    <!-- Vincula el archivo CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <link rel="stylesheet" href="styles-foro.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="sidebar" id="sidebar">
+            <span class="close-button" onclick="toggleSidebar()">✖</span>
+            <div class="logo">
+                <img src="images/logo.jpg" alt="Logo de la aplicación">
+            </div>
+            <div class="menu-options">
+                <button class="btn btn-light menu-button" onclick="redirectTo('foro.html')">Foro</button>
+                <button class="btn btn-light menu-button" onclick="redirectTo('tutoria.html')">Tutoría</button>
+                <button class="btn btn-light menu-button" onclick="redirectTo('material.html')">Materiales</button>
+                <button class="btn btn-light menu-button exit" onclick="redirectTo('principal.html')">Exit</button>
+            </div>
+        </div>
+        <button class="btn btn-info btn-lg custom-btn" onclick="toggleSidebar()">☰</button>
+
+        <!-- ... Código anterior ... -->
+
+        <div class="content">
+            <div class="user-profile" onclick="window.location.href='perfil.html'">
+                <img src="images/user-avatar.png" alt="Avatar del usuario">
+                <p>Usuario</p>
+            </div>
+            <div class="title">
+                <div class="title-content">
+                    <div class="slogan">
+                        <p>Tutorlink, encuentra el material que estabas buscando!</p>
+                    </div>
+                    <div class="main-image">
+                        <img src="images/material.png" alt="Imagen principal">
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Nuevos filtros de búsqueda -->
+            <div class="search-bar">
+                <div class="row">
+                    <div class="col-md-3">
+                        <!-- Nuevo filtro: Tags -->
+                        <select class="form-control">
+                            <option value="">Tags</option>
+                            <option value="destacados">Destacados</option>
+                            <option value="recientes">Recientes</option>
+                            <option value="carreras">Carreras</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <!-- Nuevo filtro: Estado -->
+                        <select class="form-control">
+                            <option value="">Estado</option>
+                            <option value="pendientes">Pendientes</option>
+                            <option value="completadas">Completadas</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-primary search-button">Buscar</button>
+                    </div>
+                    <div class="col-md-5 order-md-last">
+                        <button class="btn btn-transparent border-button gradient-button" onclick="redirectTo('new_request.html')">Agregar pregunta</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resultados de la búsqueda (ejemplo con un contenedor de pregunta) -->
+
+
+            <!-- Resultados de la búsqueda (ejemplo con un contenedor de pregunta) -->
+            <div class="container mt-4">
+                <div class="row">
+                    <div class="col-md-12 mb-4">
+                        <div class="result-container">
+                            <div class="result-info">
+                                <div class="user-info">
+                                    <img src="images/user-avatar.png" alt="Avatar del usuario" class="user-avatar">
+                                    <div class="user-details">
+                                        <p class="user-name">Nombre de Usuario</p>
+                                        <p class="post-date">Publicado el 17 de noviembre de 2023</p>
+                                        <p class="post-category">Carrera</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="post-content">
+                                    <!-- Contenido de la pregunta -->
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit....</p>
+                                </div>
+                                <div class="calification-area">
+                                    <button class="btn btn-transparent border-button calification-button" data-toggle="collapse" data-target="#calificationOptions">
+                                        <i class="fas fa-ellipsis-v"></i> <!-- Icono de tres puntos vertical -->
+                                    </button>
+                                    <div class="calification-options collapse" id="calificationOptions">
+                                        <button class="btn btn-transparent border-button emoji-button"><i class="far fa-meh"></i></button>
+                                        <button class="btn btn-transparent border-button emoji-button"><i class="far fa-smile"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Repetir este bloque para más resultados -->
+                    
+                </div>
+            </div>
+
+
+
+            <!-- Paginación -->
+            <div class="col-md-12">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Anterior</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <!-- Agregar más números de página según sea necesario -->
+                        <li class="page-item">
+                            <a class="page-link" href="#">Siguiente</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <!-- ... Código posterior ... -->
+
+
+
+
+    </div>
+    <!-- Footer -->
+    <div class="footer fixed-bottom bg-dark text-white text-center p-2">
+        <a href="#">Terms</a> | <a href="#">Política de privacidad</a> | <a href="#">Política de cookies</a> | <a href="#">Contáctanos</a> | <a href="#">Acerca de TUTORLink</a>
+    </div>
+
+
+    <!-- Vincula el archivo JavaScript de Bootstrap (requiere jQuery) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function toggleSidebar() {
+            var sidebar = document.querySelector(".sidebar");
+            var content = document.querySelector(".content");
+            sidebar.classList.toggle("sidebar-open");
+            content.classList.toggle("sidebar-open");
+        }
+    </script>
+    <script>
+        function redirectTo(page) {
+            window.location.href = page;
+        }
+    </script>
+
+
+</body>
+</html>

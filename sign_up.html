@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorlink - Registro</title>
+
+    <!-- Agrega la referencia a Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("images/TutorLink.png"); /* Cambia la imagen de fondo */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+        	position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 500px;
+            color: #ffffff;
+            background-color: rgba(0, 122, 204, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px) brightness(70%);
+        }
+
+        .logo {
+            text-align: center;
+            margin: 10px;
+        }
+
+        .logo img {
+            width: 100px;
+        }
+
+        .form {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .form input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .footer {
+            background-color: #001F3D;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .form button {
+            background-color: transparent;
+            border: 2px solid #ffffff;
+            color: #ffffff;
+            border-radius: 10px;
+            padding: 15px 30px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        .btn-primary:hover {
+            background-image: linear-gradient(45deg, #87CEFA, #FF69B4);
+            background-size: 100% 100%;
+            animation: gradientAnimation 1.5s infinite;
+            border: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="images/logo.jpg" alt="Logo de la aplicación" class="img-fluid">
+        </div>
+        
+        <div class="form">
+            <h2>Registro</h2>
+            <input type="text" class="form-control" placeholder="Ingrese su nombre de usuario">
+            <input type="email" class="form-control" placeholder="Ingresa tu correo electrónico">
+            <input type="text" class="form-control" placeholder="Nombre completo">
+            <input type="password" class="form-control" placeholder="Ingrese su contraseña">
+            <input type="password" class="form-control" placeholder="Confirmar contraseña">
+            <a><button class="btn btn-primary">Registrarse</button></a>
+        </div>
+    </div>
+    <div class="footer">
+        Copyright © 2023 TutorLink
+    </div>
+
+    <!-- Agrega la referencia a Bootstrap JS y Popper.js (opcional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

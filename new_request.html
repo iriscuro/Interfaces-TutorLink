@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorlink - New Request</title>
+    <!-- Vincula el archivo CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <link rel="stylesheet" href="formulario.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="sidebar" id="sidebar">
+            <span class="close-button" onclick="toggleSidebar()">✖</span>
+            <div class="logo">
+                <img src="images/logo.jpg" alt="Logo de la aplicación">
+            </div>
+            <div class="menu-options">
+                <button class="btn btn-light menu-button" onclick="redirectTo('foro.html')">Foro</button>
+                <button class="btn btn-light menu-button" onclick="redirectTo('tutoria.html')">Tutoría</button>
+                <button class="btn btn-light menu-button" onclick="redirectTo('material.html')">Materiales</button>
+                <button class="btn btn-light menu-button exit" onclick="redirectTo('principal.html')">Exit</button>
+            </div>
+        </div>
+        <button class="btn btn-info btn-lg custom-btn" onclick="toggleSidebar()">☰</button>
+
+        <!-- ... Código anterior ... -->
+
+        <div class="content">
+            <div class="user-profile" onclick="window.location.href='perfil.html'">
+                <img src="images/user-avatar.png" alt="Avatar del usuario">
+                <p>Usuario</p>
+            </div>
+            <div class="title">
+                <div class="title-content">
+                    <div class="slogan">
+                        <p>Tutorlink, encuentra el material que estabas buscando!</p>
+                    </div>
+                    <div class="main-image">
+                        <img src="images/material.png" alt="Imagen principal">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form">
+                <h2>Publicar Nueva Pregunta</h2>
+                <div class="form-group">
+                    <label for="question">Pregunta:</label>
+                    <textarea class="form-control" id="question" rows="3" placeholder="Escribe tu pregunta aquí"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="description">Descripción del Problema:</label>
+                    <textarea class="form-control" id="description" rows="3" placeholder="Describe el problema con más detalle"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="goal">¿Qué quieres conseguir?:</label>
+                    <textarea class="form-control" id="goal" rows="3" placeholder="Indica qué objetivo buscas lograr"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="career">Carrera:</label>
+                    <select class="form-control" id="career">
+                        <option value="carrera1">Carrera 1</option>
+                        <option value="carrera2">Carrera 2</option>
+                        <option value="carrera3">Carrera 3</option>
+                        <!-- Agrega más opciones según sea necesario -->
+                    </select>
+                </div>
+                <button class="btn btn-primary" onclick="publicarPregunta()">Publicar</button>
+            </div>
+        
+
+           
+        </div>
+
+        <!-- ... Código posterior ... -->
+
+
+
+
+    </div>
+    <!-- Footer -->
+    <div class="footer fixed-bottom bg-dark text-white text-center p-2">
+        Copyright © 2023 TutorLink
+    </div>
+
+
+    <!-- Vincula el archivo JavaScript de Bootstrap (requiere jQuery) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function toggleSidebar() {
+            var sidebar = document.querySelector(".sidebar");
+            var content = document.querySelector(".content");
+            sidebar.classList.toggle("sidebar-open");
+            content.classList.toggle("sidebar-open");
+        }
+
+        function publicarPregunta() {
+            // Obtener los valores del formulario (puedes usar jQuery o JavaScript puro)
+            var pregunta = document.getElementById('pregunta').value;
+            var descripcion = document.getElementById('descripcion').value;
+            var objetivo = document.getElementById('objetivo').value;
+            var carrera = document.getElementById('carrera').value;
+
+            // Aquí puedes realizar la lógica para almacenar la pregunta (puedes usar AJAX o enviar a un servidor)
+
+            // Mostrar mensaje de alerta
+            alert("Pregunta publicada");
+
+            // Redireccionar después de mostrar el mensaje
+            redirectTo('foro.html');
+        }
+        function redirectTo(page) {
+            window.location.href = page;
+        }
+    </script>
+
+
+</body>
+</html>
