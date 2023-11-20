@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorlink - Materiales</title>
+    <!-- Vincula el archivo CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background: linear-gradient(to bottom, #ffffff 0%, #ffffff 100%) no-repeat;
+            background-attachment: fixed;
+            animation: travelAnimation 10s infinite;
+        }
+
+        @keyframes travelAnimation {
+            0% {
+                background-position: 0% 0%;
+            }
+            100% {
+                background-position: 100% 0%;
+            }
+        }
+
+        .sidebar {
+            background-color: #2DA4C3; /* Color más brillante de aurora boreal */
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            height: 100%;
+            border-radius: 0 20px 20px 0;
+            transition: left 0.3s;
+            z-index: 2;
+        }
+
+        .logo {
+            padding: 20px 10px;
+            text-align: center;
+        }
+
+        .logo img {
+            width: 150px;
+            border-radius: 0;
+        }
+
+        .menu-options {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .exit {
+            position: absolute;
+            bottom: 20px;
+        }
+
+        .menu-button {
+            background-color: transparent;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+        }
+
+        .menu-button:hover {
+            background-color: #ffffff; /* Color fluorescente al pasar el ratón */
+            color: #000; /* Cambiado a negro para mayor contraste */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .menu-option.exit {
+            margin-top: auto;
+        }
+
+        .content {
+            margin-left: 0;
+            padding: 20px;
+            transition: margin-left 0.3s;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer {
+            background-color: #001F3D;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .footer a {
+            color: #ffffff;
+            text-decoration: underline;
+            margin: 0 10px;
+        }
+
+        .sidebar-open {
+            left: 0;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 10px;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        .close-button:hover {
+            color: #fff;
+        }
+
+        .title {
+            text-align: center;
+            background-color: #2DA4C3; /* Color más brillante de aurora boreal */
+            color: #fff;
+            border-radius: 20px;
+            padding: 10px;
+            max-width: 65%;
+            max-height: 150px;
+            margin: 0 auto;
+            margin-top: 20px;
+            position: relative;
+            z-index: 1;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .title:hover {
+            background-image: linear-gradient(45deg, #39FF14, #FFD700); /* Gradiente con colores de brillantina */
+            background-size: 100% 100%;
+            animation: gradientAnimation 1.5s infinite;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 0%;
+            }
+            100% {
+                background-position: 200% 200%;
+            }
+        }
+
+        .title-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center; /* Modificado */
+        }
+
+        .slogan {
+            background-color: transparent;
+            color: #fff;
+            border-radius: 20px;
+            padding: 10px;
+            width: calc(100% - 20px); /* El 20px es para tener un pequeño espacio alrededor del texto */
+
+            font-family: "cursive", "Lucida Handwriting", "Brush Script MT", cursive;
+            box-sizing: border-box; /* Asegura que el padding no incremente el ancho total */
+            margin-right: 20px; /* Espaciado entre el eslogan y la imagen */
+
+            font-size: 24px;
+        }
+
+        .slogan p {
+            font-style: italic;
+        }
+
+        .main-image {
+            text-align: right;
+            width: 50%; /* Ajusta según sea necesario */
+            max-width: 100px; /* Ajusta según sea necesario */
+            margin-top: 0px;
+        }
+
+        .main-image img {
+            max-width: 100%;
+            border-radius: 20px;
+        }
+
+        .search-bar {
+            padding: 20px;
+            background-color: #F8F9FA;
+            border-radius: 20px;
+            margin-top: 20px;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .search-button {
+            background-color: #1C7D9D;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        .search-button:hover {
+            background-color: #155C7A;
+        }
+
+        .user-profile {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 1;
+        }
+
+        .user-profile img {
+            width: 40px;
+            height: 40px;
+            border: 2px solid #A4E3F4; /* Color más brillante de aurora boreal */
+            border-radius: 50%;
+            margin-bottom: 5px;
+            cursor: pointer;
+        }
+
+        .user-profile p {
+            color: #A4E3F4; /* Color más brillante de aurora boreal */
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .content-area {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .materials {
+            flex: 2;
+            padding: 20px;
+            background-color: #F8F9FA;
+            border-radius: 20px;
+            margin-top: 20px;
+        }
+
+        .material-catalog {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .material-item {
+            width: calc(33.33% - 20px);
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .material-item img {
+            max-width: 100%;
+            height: 150px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .material-info {
+            padding: 10px;
+        }
+
+        .material-info h3 {
+            margin: 0;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .material-description {
+            color: #888;
+            margin-bottom: 10px;
+        }
+
+        .action-button {
+            background-color: #1C7D9D;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .action-button:hover {
+            background-color: #155C7A;
+        }
+
+        .sidebar-open {
+            left: 0;
+        }
+        .custom-btn {
+            margin: 25px;
+            margin-left: -10px;
+            padding: 10px;
+            width: 45px;
+            height: 45px;
+            position: absolute;
+            top: 10px;
+            left: 0px;
+            z-index: 3; /* Valor mayor que el z-index de .sidebar */
+            border: none;
+            color: #000; /* Color de texto para contrastar */
+        }
+        .custom-btn:hover {
+            background-image: linear-gradient(45deg, #87CEFA, #FF69B4); /* Celeste a Rosado */
+     /* Gradiente con colores de brillantina */
+            background-size: 100% 100%;
+            animation: gradientAnimation 1.5s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="sidebar" id="sidebar">
+            <span class="close-button" onclick="toggleSidebar()">✖</span>
+            <div class="logo">
+                <img src="images/logo.jpg" alt="Logo de la aplicación">
+            </div>
+            <div class="menu-options">
+                <button class="btn btn-light menu-button" onclick="redirectTo('foro.html')">Foro</button>
+                <button class="btn btn-light menu-button" onclick="redirectTo('tutoria.html')">Tutoría</button>
+                <button class="btn btn-light menu-button" onclick="redirectTo('material.html')">Materiales</button>
+                <button class="btn btn-light menu-button exit" onclick="redirectTo('principal.html')">Exit</button>
+            </div>
+        </div>
+        <button class="btn btn-info btn-lg custom-btn" onclick="toggleSidebar()">☰</button>
+
+        <div class="content">
+            <div class="user-profile" onclick="window.location.href='perfil.html'">
+                <img src="images/user-avatar.png" alt="Avatar del usuario">
+                <p>Usuario</p>
+            </div>
+            <div class="title">
+                <div class="title-content">
+                    <div class="slogan">
+                        <p>Tutorlink, encuentra el material que estabas buscando!</p>
+                    </div>
+                    <div class="main-image">
+                        <img src="images/material.png" alt="Imagen principal">
+                    </div>
+                </div>
+            </div>
+            <div class="search-bar">
+                <input type="text" class="form-control" placeholder="Buscar materiales...">
+                <button class="btn btn-primary search-button">Buscar</button>
+            </div>
+            <div class="content-area">
+                <div class="materials">
+                    <div class="material-catalog">
+                        <div class="material-item">
+                            <img src="images/algebra.jpg" alt="Material 1">
+                            <div class="material-info">
+                                <h3>Material 1</h3>
+                                <p>Tema: Matemáticas</p>
+                                <p>Tipo de Material: Libro</p>
+                                <p class="material-description">Descripción breve del material 1.</p>
+                                <button class="btn btn-primary action-button">Ver más</button>
+                            </div>
+                        </div>
+                        <div class="material-item">
+                            <img src="images/dr.png" alt="Material 2">
+                            <div class="material-info">
+                                <h3>Material 2</h3>
+                                <p>Tema: Ciencias</p>
+                                <p>Tipo de Material: Diapositiva</p>
+                                <p class="material-description">Descripción breve del material 2.</p>
+                                <button class="btn btn-primary action-button">Ver más</button>
+                            </div>
+                        </div>
+                        <div class="material-item">
+                            <img src="images/attention.jpg" alt="Material 3">
+                            <div class="material-info">
+                                <h3>Material 3</h3>
+                                <p>Tema: Historia</p>
+                                <p>Tipo de Material: Libro</p>
+                                <p class="material-description">Descripción breve del material 3.</p>
+                                <button class="btn btn-primary action-button">Ver más</button>
+                            </div>
+                        </div>
+                        <!-- Agrega más materiales aquí -->
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+    </div>
+    <!-- Footer -->
+    <div class="footer fixed-bottom bg-dark text-white text-center p-2">
+        <a href="#">Terms</a> | <a href="#">Política de privacidad</a> | <a href="#">Política de cookies</a> | <a href="#">Contáctanos</a> | <a href="#">Acerca de TUTORLink</a>
+    </div>
+
+
+    <!-- Vincula el archivo JavaScript de Bootstrap (requiere jQuery) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function toggleSidebar() {
+            var sidebar = document.querySelector(".sidebar");
+            var content = document.querySelector(".content");
+            sidebar.classList.toggle("sidebar-open");
+            content.classList.toggle("sidebar-open");
+        }
+    </script>
+    <script>
+        function redirectTo(page) {
+            window.location.href = page;
+        }
+    </script>
+</body>
+</html>
